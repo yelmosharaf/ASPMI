@@ -1,0 +1,14 @@
+N=1000;
+n=(0:N-1)';
+f_0=50;
+fs=10000;
+V_a=1;
+V_b=1;
+V_c=1;
+phi=0;
+delta_b=0;
+delta_c=0;
+A=sqrt(1/6)*(V_a+V_b*exp(1i*delta_b)+V_c*exp(1i*delta_c));
+B=sqrt(1/6)*(V_a+V_b*exp(-1i*(delta_b+2*pi/3))+V_c*exp(-1i*(delta_c-2*pi/3)));
+v=A*exp(2*pi*1i*f_0/fs*n+phi)+B*exp(-1i*(2*pi*f_0/fs*n+phi));
+scatter(real(v),imag(v));
